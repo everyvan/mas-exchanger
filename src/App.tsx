@@ -13,6 +13,7 @@ import { RatesTable } from './components/RatesTable';
 import { HistoricalChartModal } from './components/HistoricalChartModal';
 import { TravelShortcuts } from './components/TravelShortcuts';
 import { MasApiModal } from './components/MasApiModal';
+import { TalkToUs } from './components/TalkToUs';
 import {
   Search,
   Star,
@@ -36,7 +37,7 @@ export default function App() {
   const [favorites, setFavorites] = useState<string[]>([]);
   
   // Navigation & view states
-  const [activeTab, setActiveTab] = useState<'all' | 'favorites' | 'calculator'>('all');
+  const [activeTab, setActiveTab] = useState<'all' | 'favorites' | 'calculator' | 'talk-to-us'>('all');
   const [selectedRegion, setSelectedRegion] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [quoteMode, setQuoteMode] = useState<'standard' | 'inverted' | 'mas'>('standard');
@@ -168,8 +169,12 @@ export default function App() {
 
       {/* Main Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-        {/* Hero Section & Singapore FX Market Overview */}
-        <div className="relative rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white p-6 sm:p-8 shadow-md overflow-hidden">
+        {activeTab === 'talk-to-us' ? (
+          <TalkToUs />
+        ) : (
+          <>
+            {/* Hero Section & Singapore FX Market Overview */}
+            <div className="relative rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white p-6 sm:p-8 shadow-md overflow-hidden">
           <div className="relative z-10 max-w-3xl">
             <div className="flex items-center gap-2 text-rose-400 text-xs font-semibold uppercase tracking-wider mb-2">
               <span className="w-2 h-2 rounded-full bg-rose-500" />
@@ -435,7 +440,9 @@ export default function App() {
             />
           )}
         </div>
-      </main>
+      </>
+    )}
+  </main>
 
       {/* Footer */}
       <footer className="mt-16 bg-white border-t border-slate-200 py-8 text-xs text-slate-500">

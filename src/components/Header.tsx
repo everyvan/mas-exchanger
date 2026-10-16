@@ -1,12 +1,12 @@
-import { RefreshCw, KeyRound, Sparkles } from 'lucide-react';
+import { RefreshCw, KeyRound, MessageSquare } from 'lucide-react';
 
 interface HeaderProps {
   lastUpdated: Date;
   isRefreshing: boolean;
   onRefresh: () => void;
   onOpenMasModal: () => void;
-  activeTab: 'all' | 'favorites' | 'calculator';
-  onSelectTab: (tab: 'all' | 'favorites' | 'calculator') => void;
+  activeTab: 'all' | 'favorites' | 'calculator' | 'talk-to-us';
+  onSelectTab: (tab: 'all' | 'favorites' | 'calculator' | 'talk-to-us') => void;
   favoritesCount: number;
 }
 
@@ -74,6 +74,16 @@ export function Header({
               }`}
             >
               SGD Calculator
+            </button>
+            <button
+              type="button"
+              onClick={() => onSelectTab('talk-to-us')}
+              className={`hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 pb-1 cursor-pointer flex items-center gap-1.5 ${
+                activeTab === 'talk-to-us' ? 'text-rose-600 font-semibold border-b-2 border-rose-600' : ''
+              }`}
+            >
+              <MessageSquare className="w-3.5 h-3.5" />
+              <span>Talk to Us</span>
             </button>
             <button
               type="button"
