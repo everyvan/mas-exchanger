@@ -1,0 +1,6 @@
+{
+  "name": "SingaRate - Singapore Dollar (SGD) Exchange Rate Portal",
+  "description": "Real-time Singapore Dollar (SGD) exchange rates, MAS benchmark rates, favorites tracker, and interactive multi-currency calculator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
